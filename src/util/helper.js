@@ -1,8 +1,10 @@
 const printDate = function(){
-    console.log("the current date is 2 june 2022")
+    let a = new Date()
+    console.log(a.getDate())
 }
 const printMonth = function(){
-    console.log("the current month is june")
+    let b = new Date()
+    console.log(b.getMonth()+1)
 }
 const getbatchinfo = function(){
     console.log("Radon,w3, D3, The topic for today is Node js module system")
