@@ -29,7 +29,19 @@ router.get('/candidates', function(req, res){
     let candidates = ['Akash','Suman']
     res.send(candidates)
 })
-
+// router.get('/movies' , function(req, res){
+//           let movies = ["the dark night" , "intersteller" , "siccin" , "haunted"]
+//           res.send(movies)
+// })
+// router.get("/movies/:indexNumber" , function(req, res){
+//               let movies = ["the dark night" , "intersteller" , "siccin" , "haunted"]
+//               for (indexNumber=0;indexNumber=3;i++){
+//                 indexNumber === movies[i]
+//                 res.send(movies[i])
+                
+//               }
+          
+// })
 router.get('/candidates/:canidatesName', function(req, res){
     console.log('The request objects is '+ JSON.stringify(req.params))
     console.log('Candidates name is '+req.params.canidatesName)
