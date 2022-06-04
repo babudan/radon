@@ -1,6 +1,7 @@
 const express = require('express');
 const myHelper = require('../util/helper')
-const underscore = require('underscore')
+const underscore = require('underscore');
+const res = require('express/lib/response');
 
 const router = express.Router();
 
@@ -26,7 +27,7 @@ router.get('/candidates', function(req, res){
     console.log('State is '+state)
     console.log('Gender is '+gender)
     console.log('District is '+district)
-    let candidates = ['Akash','Suman']
+    let candidates = ['Arindam','Suman']
     res.send(candidates)
 })
 // router.get('/movies' , function(req, res){
@@ -35,13 +36,35 @@ router.get('/candidates', function(req, res){
 // })
 // router.get("/movies/:indexNumber" , function(req, res){
 //               let movies = ["the dark night" , "intersteller" , "siccin" , "haunted"]
-//               for (indexNumber=0;indexNumber=3;i++){
-//                 indexNumber === movies[i]
-//                 res.send(movies[i])
-                
-//               }
-          
-// })
+//                 res.send(movies[req.params.indexNumber])
+//           })
+          router.get("/movies/:indexNumber" , function(req, res){
+            let movies = ["the dark night" , "intersteller" , "siccin" , "haunted"]
+            if (req.params.indexNumber<movies.length){
+              res.send(movies[req.params.indexNumber])
+            }else {
+                res.send("tells the user to use a valid index")
+            }
+        })
+       router.get("/films" , function(req, res){
+      let cinema =   [ {
+            "id": 1,
+            "name": "The Shining"
+           }, {
+            "id": 2,
+            "name": "Incendies"
+           }, {
+            "id": 3,
+            "name": "Rang de Basanti"
+           }, {
+            "id": 4,
+            "name": "Finding Nemo"
+           }]
+        res.send(cinema)
+        })  
+
+      
+
 router.get('/candidates/:canidatesName', function(req, res){
     console.log('The request objects is '+ JSON.stringify(req.params))
     console.log('Candidates name is '+req.params.canidatesName)
