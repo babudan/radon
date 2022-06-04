@@ -30,38 +30,6 @@ router.get('/candidates', function(req, res){
     let candidates = ['Arindam','Suman']
     res.send(candidates)
 })
-// router.get('/movies' , function(req, res){
-//           let movies = ["the dark night" , "intersteller" , "siccin" , "haunted"]
-//           res.send(movies)
-// })
-// router.get("/movies/:indexNumber" , function(req, res){
-//               let movies = ["the dark night" , "intersteller" , "siccin" , "haunted"]
-//                 res.send(movies[req.params.indexNumber])
-//           })
-          router.get("/movies/:indexNumber" , function(req, res){
-            let movies = ["the dark night" , "intersteller" , "siccin" , "haunted"]
-            if (req.params.indexNumber<movies.length){
-              res.send(movies[req.params.indexNumber])
-            }else {
-                res.send("tells the user to use a valid index")
-            }
-        })
-       router.get("/films" , function(req, res){
-      let cinema =   [ {
-            "id": 1,
-            "name": "The Shining"
-           }, {
-            "id": 2,
-            "name": "Incendies"
-           }, {
-            "id": 3,
-            "name": "Rang de Basanti"
-           }, {
-            "id": 4,
-            "name": "Finding Nemo"
-           }]
-        res.send(cinema)
-        })  
 
       
 
