@@ -51,10 +51,10 @@ router.post("/test-post-2", function(req, res) {
 })
 
 router.post("/test-post-3", function(req, res) {
-    // let id = req.body.user
-    // let pwd= req.body.password
+    let id = req.body.user
+    let pwd= req.body.password
 
-    // console.log( id , pwd)
+    console.log( id , pwd)
 
     console.log( req.body )
 
