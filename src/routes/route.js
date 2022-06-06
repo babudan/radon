@@ -9,6 +9,6 @@ router.get("/test-me", function (req, res) {
 
 router.post("/createUser", UserController.createUser  )
 
-router.get("/getUsersData", UserController.getUsersData)
+router.post("/getUsersData", UserController.getUsersData)
 
 module.exports = router;
