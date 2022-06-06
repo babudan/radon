@@ -5,7 +5,14 @@ const mongoose = require('mongoose');
                 bookName : String,
               authorName : String,
                category  : String,
-                Year     : Number
+                Year     : Number,
+                tags : [String],
+                date  : {
+                     type :  Date,
+                     default : Date.now
+                },
+                isPublished  : Boolean
+
  }, {timestamps : true});
 module.exports = mongoose.model('Books', bookschema) 
 
