@@ -10,17 +10,22 @@ const createBook= async function (req, res) {
 
 const getBooksData= async function (req, res) {
 
-
+        
     let allBooks = await bookModel.find().select({bookName : 1 , authorName : 1 , _id : 0 } )
      res.send({msg:allBooks})
          } 
      const booksyeardata = async function (req, res) {
-        const yeardata = req.body.year
     
-        let yearsavedData = await bookModel.find({year : yeardata })
+        let yearsavedData = await bookModel.find({ year: req.body.year }).select({bookName:1,_id:0})
+
          res.send({msg: yearsavedData })
      }
-
+       
+     const particularBooks = async function (req, res) {
+          let particularYearData = req.body     
+        let particularData = await bookModel.find(req.body)
+        res.send({msg:particularData})
+     }    
 
 
 
@@ -36,10 +41,9 @@ const getBooksData= async function (req, res) {
 
      
      const randombooks = async function (req, res) {
-        let randomdata = req.body
    
        let randomSavedData = await bookModel.find({
-           $or :[{"totalPages" : {$eq :"100INR"}},{"stockAvailable" : { eq : "true"}}]})
+           $or :[{totalPages : {$gt :500}},{stockAvailable: true}]})
         return res.send({msg: randomSavedData })
         console.log(randomSavedData)
     }
@@ -125,5 +129,6 @@ const getBooksData= async function (req, res) {
 module.exports.createBook= createBook
 module.exports.getBooksData= getBooksData
 module.exports.booksyeardata= booksyeardata
+module.exports. particularBooks= particularBooks
 module.exports.pricetagbooks=pricetagbooks
 module.exports.randombooks=randombooks

@@ -12,7 +12,9 @@ const BookController= require("../controllers/bookController")
 
 router.post("/createBook", BookController.createBook  )
 router.get("/bookList", BookController.getBooksData  )
+router.post("/getParticularBooks" , BookController.particularBooks)
+router.post("/getBooksInYear" , BookController.booksyeardata)
 router.post("/getXINRBooks", BookController.pricetagbooks)
-router.post("/getRandomBooks" , BookController.randombooks)
+router.get("/getRandomBooks" , BookController.randombooks)
 
 module.exports = router;
